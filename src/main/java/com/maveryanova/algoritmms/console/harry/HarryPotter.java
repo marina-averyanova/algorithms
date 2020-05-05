@@ -57,6 +57,9 @@ public class HarryPotter {
             case 8:
                 spell = new Sonorus();
                 break;
+            case 9:
+                spell = new AvadaKedavra();
+                break;
             case 10:
                 spell = new ExpectoPatronum();
                 break;
@@ -69,6 +72,6 @@ public class HarryPotter {
             default: throw new Exception("I'm just learning, I don't know all the spells");
         }
 
-        spell.call(writer, x, y);
+        writer.print(spell.doMagic(x, y) ? "# " : ". ");
     }
 }
