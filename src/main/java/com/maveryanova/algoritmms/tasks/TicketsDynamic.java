@@ -1,3 +1,14 @@
+/* *
+ * Lucky tickets 20
+ * A ticket with a 2N digit number is considered lucky,
+ * if the sum of the N first digits is equal to the sum of the last N digits.
+ * Calculate how many happy 2N-digit tickets exist.
+ * Initial data: number N from 1 to 10.
+ * Conclusion of the result: the number of 2N-digit lucky tickets.
+ *
+ * This solution is based on dynamic programming.
+ */
+
 package com.maveryanova.algoritmms.tasks;
 
 import java.math.BigInteger;

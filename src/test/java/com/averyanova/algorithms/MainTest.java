@@ -1,6 +1,5 @@
 package com.averyanova.algorithms;
 
-import com.maveryanova.algoritmms.tasks.StringsLength;
 import com.maveryanova.algoritmms.tasks.Task;
 import com.maveryanova.algoritmms.tasks.Tickets;
 import com.maveryanova.algoritmms.tasks.TicketsDynamic;
@@ -13,13 +12,6 @@ public class MainTest {
     @BeforeAll
     static void setUp() {
         tester = new Tester();
-    }
-
-
-    @Test
-    public void stringsLengthTest() {
-        Task stringsLengthTask = new StringsLength();
-        tester.runTests(stringsLengthTask);
     }
 
     @Test
