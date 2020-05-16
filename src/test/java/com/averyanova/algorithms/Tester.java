@@ -36,7 +36,8 @@ public class Tester {
 
             long durationMillis = endTime.toEpochMilli() - startTime.toEpochMilli();
             long durationSeconds = durationMillis / 1000;
-            String duration = durationSeconds + "s" + (durationMillis - 1000 * durationSeconds) + "ms";
+            String duration = durationSeconds + "s" +
+                (durationMillis >= 1000 ? durationMillis - 1000 * durationSeconds : durationMillis) + "ms";
 
             logger.info(String.format("Test #%d result is - %s; duration=%s", i, testResult, duration));
             assertTrue(testResult);
