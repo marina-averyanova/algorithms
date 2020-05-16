@@ -6,7 +6,7 @@ import com.maveryanova.algoritmms.tasks.TicketsDynamic;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-public class MainTest {
+public class TicketsTest {
     private static Tester tester;
 
     @BeforeAll
