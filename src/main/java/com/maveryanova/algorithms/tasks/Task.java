@@ -1,4 +1,4 @@
-package com.maveryanova.algoritmms.tasks;
+package com.maveryanova.algorithms.tasks;
 
 import java.util.List;
 

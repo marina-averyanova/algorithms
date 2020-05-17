@@ -1,4 +1,4 @@
-package com.maveryanova.algoritmms;
+package com.maveryanova.algorithms;
 
 public class Main {
 

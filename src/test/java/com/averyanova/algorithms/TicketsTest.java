@@ -1,8 +1,8 @@
 package com.averyanova.algorithms;
 
-import com.maveryanova.algoritmms.tasks.Task;
-import com.maveryanova.algoritmms.tasks.Tickets;
-import com.maveryanova.algoritmms.tasks.TicketsDynamic;
+import com.maveryanova.algorithms.tasks.Task;
+import com.maveryanova.algorithms.tasks.Tickets;
+import com.maveryanova.algorithms.tasks.TicketsDynamic;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 

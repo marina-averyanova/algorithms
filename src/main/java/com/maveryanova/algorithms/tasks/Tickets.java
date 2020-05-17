@@ -8,7 +8,7 @@
  *
  * This is a slow solution that cannot calculate the result when N = 10.
  */
-package com.maveryanova.algoritmms.tasks;
+package com.maveryanova.algorithms.tasks;
 
 import java.math.BigInteger;
 import java.util.Arrays;

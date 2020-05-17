@@ -1,4 +1,4 @@
-package com.maveryanova.algoritmms.service;
+package com.maveryanova.algorithms.service;
 
 import java.math.BigInteger;
 

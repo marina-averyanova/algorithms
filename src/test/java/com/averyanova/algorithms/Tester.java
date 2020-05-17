@@ -1,6 +1,6 @@
 package com.averyanova.algorithms;
 
-import com.maveryanova.algoritmms.tasks.Task;
+import com.maveryanova.algorithms.tasks.Task;
 
 import java.nio.file.Files;
 import java.nio.file.Path;

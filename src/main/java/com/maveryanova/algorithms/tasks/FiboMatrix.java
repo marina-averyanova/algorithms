@@ -4,9 +4,9 @@
  * This solution uses matrix.
  */
 
-package com.maveryanova.algoritmms.tasks;
+package com.maveryanova.algorithms.tasks;
 
-import com.maveryanova.algoritmms.service.BigMatrix2D;
+import com.maveryanova.algorithms.service.BigMatrix2D;
 
 import java.math.BigInteger;
 import java.util.List;

@@ -2,7 +2,7 @@
  * Watch the "Harry Potter Square" video tutorial and unravel a dozen spells
  * https://www.youtube.com/watch?v=KmV3aBHfo5w
  */
-package com.maveryanova.algoritmms.console.harry;
+package com.maveryanova.algorithms.console.harry;
 
 import java.io.Console;
 import java.io.PrintWriter;

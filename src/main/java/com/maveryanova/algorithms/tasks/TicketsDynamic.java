@@ -9,7 +9,7 @@
  * This solution is based on dynamic programming.
  */
 
-package com.maveryanova.algoritmms.tasks;
+package com.maveryanova.algorithms.tasks;
 
 import java.math.BigInteger;
 import java.util.Arrays;

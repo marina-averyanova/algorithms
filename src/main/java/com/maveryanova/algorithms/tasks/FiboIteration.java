@@ -4,7 +4,7 @@
  * This solution uses iteration.
  */
 
-package com.maveryanova.algoritmms.tasks;
+package com.maveryanova.algorithms.tasks;
 
 import java.math.BigInteger;
 import java.util.List;

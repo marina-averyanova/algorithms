@@ -4,7 +4,7 @@
  * This solution uses binary algorithm.
  */
 
-package com.maveryanova.algoritmms.tasks;
+package com.maveryanova.algorithms.tasks;
 
 import java.util.List;
 

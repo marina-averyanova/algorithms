@@ -1,12 +1,12 @@
 package com.averyanova.algorithms;
 
-import com.maveryanova.algoritmms.tasks.FiboIteration;
-import com.maveryanova.algoritmms.tasks.FiboMatrix;
-import com.maveryanova.algoritmms.tasks.FiboRecursion;
-import com.maveryanova.algoritmms.tasks.Power2Power;
-import com.maveryanova.algoritmms.tasks.PowerBinary;
-import com.maveryanova.algoritmms.tasks.PowerIterate;
-import com.maveryanova.algoritmms.tasks.Task;
+import com.maveryanova.algorithms.tasks.FiboIteration;
+import com.maveryanova.algorithms.tasks.FiboMatrix;
+import com.maveryanova.algorithms.tasks.FiboRecursion;
+import com.maveryanova.algorithms.tasks.Power2Power;
+import com.maveryanova.algorithms.tasks.PowerBinary;
+import com.maveryanova.algorithms.tasks.PowerIterate;
+import com.maveryanova.algorithms.tasks.Task;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 

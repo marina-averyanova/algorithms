@@ -1,4 +1,4 @@
-package com.maveryanova.algoritmms.console.harry;
+package com.maveryanova.algorithms.console.harry;
 
 public interface Spell {
     boolean doMagic(int x, int y);
