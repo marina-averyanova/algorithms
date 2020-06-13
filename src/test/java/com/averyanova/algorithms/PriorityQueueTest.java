@@ -10,7 +10,7 @@ public class PriorityQueueTest {
 
     @Test
     public void priorityQueueTest() throws Exception {
-        PriorityQueue<String> queue = new PriorityQueue<>(10);
+        PriorityQueue<String> queue = new PriorityQueue<>();
         boolean isEmpty = queue.isEmpty();
         assertTrue(isEmpty);
 
