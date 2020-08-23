@@ -23,7 +23,7 @@ public class ArraySortingTest {
     private final SelectionSort selectionSortClass = new SelectionSort();
     private final InsertionSort insertionSortClass = new InsertionSort();
     private final ShellSort shellSortClass = new ShellSort();
-    private final HeapSort heapSort = new HeapSort();
+    private final HeapSort heapSortClass = new HeapSort();
 
     @Test
     public void randomTest() {
@@ -45,7 +45,7 @@ public class ArraySortingTest {
         sortData(testData, shellSortClass, "sedgewick", null);
 
         logger.info("Heap sort");
-        sortData(testData, heapSort, 6);
+        sortData(testData, heapSortClass, null);
     }
 
     @Test
@@ -66,6 +66,9 @@ public class ArraySortingTest {
 
         logger.info("Shell sort ('Sedgewick' type)");
         sortData(testData, shellSortClass, "sedgewick", 6);
+
+        logger.info("Heap sort");
+        sortData(testData, heapSortClass, null);
     }
 
     @Test
@@ -86,6 +89,9 @@ public class ArraySortingTest {
 
         logger.info("Shell sort ('Sedgewick' type)");
         sortData(testData, shellSortClass, "sedgewick", null);
+
+        logger.info("Heap sort");
+        sortData(testData, heapSortClass, null);
     }
 
     @Test
@@ -106,6 +112,9 @@ public class ArraySortingTest {
 
         logger.info("Shell sort ('Sedgewick' type)");
         sortData(testData, shellSortClass, "sedgewick", null);
+
+        logger.info("Heap sort");
+        sortData(testData, heapSortClass, null);
     }
 
     private void sortData(Map<Integer, Pair<int[], String>> testData, Sort sort, Integer stopPoint) {
@@ -160,16 +169,16 @@ public class ArraySortingTest {
     *
     * randomTest
     *
-    *            | Sel sort | Ins sort |Sh. 'Shell'|Sh. 'Knut'| Sh. 'Sedgewick'|
-    -----------------------------------------------------------------------------
-    | 1          | 0        | 0        | 0         | 0        | 0              |
-    | 10         | 0        | 0        | 0         | 0        | 0              |
-    | 100        | 0        | 0        | 0         | 0        | 0              |
-    | 1000       | 1        | 2        | 1         | 1        | 1              |
-    | 10_000     | 61       | 12       | 5         | 2        | 1              |
-    | 100_000    | 3505     | 948      | 16        | 18       | 14             |
-    | 1_000_000  | ~        | ~        | 181       | 209      | 144            |
-    | 10_000_000 | ~        | ~        | 3751      | 3016     | 1841           |
+    *                 | Sel sort | Ins sort |Sh. 'Shell'|Sh. 'Knut'| Sh. 'Sedgewick'| Heap sort
+    --------------------------------------------------------------------------------------------
+    | #0   1          | 0        | 0        | 0         | 0        | 0              | 0
+    | #1   10         | 0        | 0        | 0         | 0        | 0              | 0
+    | #2   100        | 0        | 0        | 0         | 0        | 0              | 0
+    | #3   1000       | 1        | 2        | 1         | 1        | 1              | 0
+    | #4   10_000     | 61       | 12       | 5         | 2        | 1              | 2
+    | #5   100_000    | 3505     | 948      | 16        | 18       | 14             | 14
+    | #6   1_000_000  | ~        | ~        | 181       | 209      | 144            | 172
+    | #7   10_000_000 | ~        | ~        | 3751      | 3016     | 1841           | 2812
 
     */
 
@@ -178,16 +187,16 @@ public class ArraySortingTest {
     *
     * digitsTest
     *
-    *            | Sel sort | Ins sort |Sh. 'Shell'|Sh. 'Knut'| Sh. 'Sedgewick'|
-    -----------------------------------------------------------------------------
-    | 1          | 0        | 0        | 0         | 0        | 0              |
-    | 10         | 0        | 0        | 0         | 0        | 0              |
-    | 100        | 0        | 0        | 0         | 0        | 0              |
-    | 1000       | 6        | 3        | 4         | 1        | 1              |
-    | 10_000     | 75       | 14       | 15        | 8        | 7              |
-    | 100_000    | 3572     | 1112     | 888       | 727      | 691            |
-    | 1_000_000  | ~        | ~        | ~         | ~        | ~              |
-    | 10_000_000 | ~        | ~        | ~         | ~        | ~              |
+    *                 | Sel sort | Ins sort |Sh. 'Shell'|Sh. 'Knut'| Sh. 'Sedgewick'| Heap sort
+    --------------------------------------------------------------------------------------------
+    | #0   1          | 0        | 0        | 0         | 0        | 0              | 0
+    | #1   10         | 0        | 0        | 0         | 0        | 0              | 0
+    | #2   100        | 0        | 0        | 0         | 0        | 0              | 0
+    | #3   1000       | 6        | 3        | 4         | 1        | 1              | 1
+    | #4   10_000     | 75       | 14       | 15        | 8        | 7              | 2
+    | #5   100_000    | 3572     | 1112     | 888       | 727      | 691            | 10
+    | #6   1_000_000  | ~        | ~        | ~         | ~        | ~              | 86
+    | #7   10_000_000 | ~        | ~        | ~         | ~        | ~              | 936
 
     */
 
@@ -196,16 +205,16 @@ public class ArraySortingTest {
     *
     * sortedTest
     *
-    *            | Sel sort | Ins sort |Sh. 'Shell'|Sh. 'Knut'| Sh. 'Sedgewick'|
-    -----------------------------------------------------------------------------
-    | 1          | 0        | 0        | 0         | 0        | 0              |
-    | 10         | 0        | 0        | 0         | 0        | 0              |
-    | 100        | 0        | 0        | 0         | 0        | 0              |
-    | 1000       | 3        | 0        | 1         | 0        | 0              |
-    | 10_000     | 62       | 4        | 4         | 0        | 1              |
-    | 100_000    | 3639     | 26       | 12        | 9        | 11             |
-    | 1_000_000  | ~        | 2741     | 137       | 119      | 144            |
-    | 10_000_000 | ~        | ~        | 1981      | 1679     | 1439           |
+    *                 | Sel sort | Ins sort |Sh. 'Shell'|Sh. 'Knut'| Sh. 'Sedgewick'| Heap sort
+    --------------------------------------------------------------------------------------------
+    | #0   1          | 0        | 0        | 0         | 0        | 0              | 0
+    | #1   10         | 0        | 0        | 0         | 0        | 0              | 0
+    | #2   100        | 0        | 0        | 0         | 0        | 0              | 0
+    | #3   1000       | 3        | 0        | 1         | 0        | 0              | 0
+    | #4   10_000     | 62       | 4        | 4         | 0        | 1              | 2
+    | #5   100_000    | 3639     | 26       | 12        | 9        | 11             | 11
+    | #6   1_000_000  | ~        | 2741     | 137       | 119      | 144            | 94
+    | #7   10_000_000 | ~        | ~        | 1981      | 1679     | 1439           | 1074
 
     */
 
@@ -214,16 +223,103 @@ public class ArraySortingTest {
     *
     * reversTest
     *
-    *            | Sel sort | Ins sort |Sh. 'Shell'|Sh. 'Knut'| Sh. 'Sedgewick'|
-    -----------------------------------------------------------------------------
-    | 1          | 0        | 0        | 0         | 0        | 0              |
-    | 10         | 0        | 0        | 0         | 0        | 0              |
-    | 100        | 0        | 0        | 0         | 0        | 0              |
-    | 1000       | 4        | 3        | 1         | 0        | 0              |
-    | 10_000     | 43       | 19       | 4         | 0        | 0              |
-    | 100_000    | 8990     | 1980     | 6         | 3        | 3              |
-    | 1_000_000  | ~        | ~        | 50        | 35       | 32             |
-    | 10_000_000 | ~        | ~        | 643       | 422      | 415            |
+    *                 | Sel sort | Ins sort |Sh. 'Shell'|Sh. 'Knut'| Sh. 'Sedgewick'| Heap sort
+    --------------------------------------------------------------------------------------------
+    | #0   1          | 0        | 0        | 0         | 0        | 0              | 0
+    | #0   10         | 0        | 0        | 0         | 0        | 0              | 0
+    | #0   100        | 0        | 0        | 0         | 0        | 0              | 0
+    | #0   1000       | 4        | 3        | 1         | 0        | 0              | 0
+    | #0   10_000     | 43       | 19       | 4         | 0        | 0              | 2
+    | #0   100_000    | 8990     | 1980     | 6         | 3        | 3              | 10
+    | #0   1_000_000  | ~        | ~        | 50        | 35       | 32             | 84
+    | #0   10_000_000 | ~        | ~        | 643       | 422      | 415            | 994
 
     */
+
+    /* *
+    *
+    * Selection sort
+    *
+    *                 | random   | digits   | sorted    | reversed
+    ---------------------------------------------------------------
+    | #0   1          | 0        | 0        | 0         | 0
+    | #1   10         | 0        | 0        | 0         | 0
+    | #2   100        | 0        | 0        | 0         | 0
+    | #3   1000       | 1        | 6        | 3         | 4
+    | #4   10_000     | 61       | 75       | 62        | 43
+    | #5   100_000    | 3505     | 3572     | 3639      | 8990
+    | #6   1_000_000  | ~        | ~        | ~         | ~
+    | #7   10_000_000 | ~        | ~        | ~         | ~
+
+    */
+
+    /* *
+    *
+    * Insertion sort
+    *
+    *                 | random   | digits   | sorted    | reversed
+    ---------------------------------------------------------------
+    | #0   1          | 0        | 0        | 0         | 0
+    | #1   10         | 0        | 0        | 0         | 0
+    | #2   100        | 0        | 0        | 0         | 0
+    | #3   1000       | 2        | 3        | 0         | 3
+    | #4   10_000     | 12       | 14       | 4         | 19
+    | #5   100_000    | 948      | 1112     | 26        | 1980
+    | #6   1_000_000  | ~        | ~        | 2741      | ~
+    | #7   10_000_000 | ~        | ~        | ~         | ~
+
+    */
+
+    /* *
+    *
+    * Shell sort ('Sedgewick')
+    *
+    *                 | random   | digits   | sorted    | reversed
+    ---------------------------------------------------------------
+    | #0   1          | 0        | 0        | 0         | 0
+    | #1   10         | 0        | 0        | 0         | 0
+    | #2   100        | 0        | 0        | 0         | 0
+    | #3   1000       | 1        | 1        | 0         | 0
+    | #4   10_000     | 1        | 7        | 1         | 0
+    | #5   100_000    | 14       | 691      | 11        | 3
+    | #6   1_000_000  | 144      | ~        | 144       | 32
+    | #7   10_000_000 | 1841     | ~        | 1439      | 415
+
+    */
+
+    /* *
+    *
+    * Heap sort
+    *
+    *                 | random   | digits   | sorted    | reversed
+    ---------------------------------------------------------------
+    | #0   1          | 0        | 0        | 0         | 0
+    | #1   10         | 0        | 0        | 0         | 0
+    | #2   100        | 0        | 0        | 0         | 0
+    | #3   1000       | 0        | 1        | 0         | 0
+    | #4   10_000     | 2        | 2        | 2         | 2
+    | #5   100_000    | 14       | 10       | 11        | 10
+    | #6   1_000_000  | 172      | 86       | 94        | 84
+    | #7   10_000_000 | 2812     | 936      | 1074      | 994
+
+    */
+
+    /* *
+
+      Selection sort more slower with reversed array probably due to more assignment operations in each iteration.
+      Selection sort is not reactive to few-variative or pre-sorted arrays.
+
+      Insertion sort quickly than selection sort.
+      Insertion sort reacts on pre-sorted data due to fewer swaps.
+
+      Shell?
+
+      Heap sort quickly than other n^2 algorithms.
+      Heap sort is not reactive to pre-sorted or reversed arrays.
+      Heap sort quickly with digits array probably due to a lot of equal values ​​and fewer swaps.
+      Сomparison for random sorted/reversed arrays is irrelevant due to different order of numbers.
+
+    */
+
+
 }

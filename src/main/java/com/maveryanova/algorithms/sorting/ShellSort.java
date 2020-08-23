@@ -23,7 +23,7 @@ public class ShellSort extends Sort {
         int innerCounter,  outerCounter;
         int temp;
         for (Integer h : intervals) {
-            for (outerCounter = h; outerCounter < getLength(); outerCounter++) {
+            for (outerCounter = h; outerCounter < array.length; outerCounter++) {
                 temp = array[outerCounter];
                 innerCounter = outerCounter;
 
@@ -39,11 +39,10 @@ public class ShellSort extends Sort {
     }
 
     public void setRule(String rule) {
-        setIntervals(rule);
+        setIntervals(rule, getLength());
     }
 
-    private void setIntervals(String intervalsRule) {
-        int length = getLength();
+    private void setIntervals(String intervalsRule, int length) {
         if (intervalsRule.equals("shell")) {
             // NOTE O(N^2)
             if (shellIntervals.containsKey(length)) {
@@ -104,13 +103,6 @@ public class ShellSort extends Sort {
             h = new Double(Math.pow(4, i) + 3 * Math.pow(2, i - 1) + 1).intValue();
             i++;
         };
-        /*int[] sequence = new int[] { 1, 8, 23, 77, 281, 1073, 4193, 16577, 65921, 262913, 1050113, 4197377, 16783361 };
-        int h = 1; int i = 0;
-        while (h < getLength()) {
-            h = sequence[i];
-            this.intervals.add(h);
-            i++;
-        };*/
         Collections.reverse(intervals);
         return intervals;
     }

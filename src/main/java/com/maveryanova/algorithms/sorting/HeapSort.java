@@ -6,22 +6,35 @@ public class HeapSort extends Sort {
     public int[] sort() {
         int[] array = copyArray();
 
-        findMax(0, array, array.length); // max element goes to first
+        // build start heap
+        for (int i = array.length / 2 - 1; i >= 0; i--) {
+            heapify(array, i, array.length);
+        }
 
         for (int i = array.length - 1; i >= 0; i--) {
             swap(array, 0, i);
-            findMax(0, array, i);
+            heapify(array, 0, i);
         }
 
         return array;
     }
 
-    private void findMax(int root, int[] array, int partitionPoint) {
+    private void heapify(int[] array, int rootIndex, int heapSize) {
         // max element goes to root
-        for (int i = root + 1; i < partitionPoint; i++) {
-            if (array[root] < array[i]) {
-                swap(array, root, i);
-            }
-        }
+        int leftChildIndex = 2 * rootIndex + 1;
+        int rightChildIndex = leftChildIndex + 1;
+
+        int tempIndex = rootIndex;
+        if (leftChildIndex < heapSize && array[tempIndex] < array[leftChildIndex])
+            tempIndex = leftChildIndex;
+        if (rightChildIndex < heapSize && array[tempIndex] < array[rightChildIndex])
+            tempIndex = rightChildIndex;
+
+        if (rootIndex == tempIndex)
+            return;
+
+        swap(array, tempIndex, rootIndex);
+
+        heapify(array, tempIndex, heapSize);
     }
 }

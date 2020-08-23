@@ -7,7 +7,7 @@ public class InsertionSort extends Sort {
         int[] array = copyArray();
 
         int innerCounter, outerCounter;
-        for (outerCounter = 1; outerCounter < getLength(); outerCounter++) {
+        for (outerCounter = 1; outerCounter < array.length; outerCounter++) {
             int temp = array[outerCounter];
             innerCounter = outerCounter;
 

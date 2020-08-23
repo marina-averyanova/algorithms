@@ -31,8 +31,8 @@ public abstract class Sort {
 
     protected int[] copyArray() {
         // we don't want to mutate given data
-        int[] array = new int[getLength()];
-        System.arraycopy(getArray(), 0, array, 0,getLength());
+        int[] array = new int[this.length];
+        System.arraycopy(getArray(), 0, array, 0, this.length);
         return array;
     }
 }
