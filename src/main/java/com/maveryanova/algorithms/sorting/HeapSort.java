@@ -4,8 +4,7 @@ public class HeapSort extends Sort {
 
     @Override
     public int[] sort() {
-        int[] array = new int[getLength()];
-        System.arraycopy(getArray(), 0, array, 0,getLength());
+        int[] array = copyArray();
 
         findMax(0, array, array.length); // max element goes to first
 

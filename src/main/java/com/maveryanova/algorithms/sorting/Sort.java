@@ -28,4 +28,11 @@ public abstract class Sort {
         arr[one] = arr[two];
         arr[two] = temp;
     }
+
+    protected int[] copyArray() {
+        // we don't want to mutate given data
+        int[] array = new int[getLength()];
+        System.arraycopy(getArray(), 0, array, 0,getLength());
+        return array;
+    }
 }

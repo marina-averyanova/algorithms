@@ -29,7 +29,7 @@ public class ArraySortingTest {
     public void randomTest() {
         Map<Integer, Pair<int[], String>> testData = reader.read("sorting-tests/0.random");
 
-        /*logger.info("Selection sort");
+        logger.info("Selection sort");
         sortData(testData, selectionSortClass, 6);
 
         logger.info("Insertion sort");
@@ -42,7 +42,7 @@ public class ArraySortingTest {
         sortData(testData, shellSortClass, "knut", null);
 
         logger.info("Shell sort ('Sedgewick' type)");
-        sortData(testData, shellSortClass, "sedgewick", null);*/
+        sortData(testData, shellSortClass, "sedgewick", null);
 
         logger.info("Heap sort");
         sortData(testData, heapSort, 6);
