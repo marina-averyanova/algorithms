@@ -1,6 +1,6 @@
 package com.maveryanova.algorithms.sorting;
 
-public class InsertionSort extends Sort{
+public class InsertionSort extends Sort {
 
     @Override
     public int[] sort() {
