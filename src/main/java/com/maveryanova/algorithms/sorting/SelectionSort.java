@@ -1,12 +1,15 @@
 package com.maveryanova.algorithms.sorting;
 
-public class SelectionSort extends Sort {
+public class SelectionSort implements Sort {
 
     @Override
-    public int[] sort() {
-        int[] array = copyArray();
+    public int[] sort(int[] arrayToSort) {
+        int[] array = SortUtils.copyArray(arrayToSort);
 
-        int outerCounter, innerCounter, indexMin;
+        int outerCounter;
+        int innerCounter;
+        int indexMin;
+
         for (outerCounter = 0; outerCounter < array.length - 1; outerCounter++) {
             indexMin = outerCounter;
             for (innerCounter = outerCounter + 1; innerCounter < array.length; innerCounter++) {
@@ -14,7 +17,7 @@ public class SelectionSort extends Sort {
                     indexMin = innerCounter;
                 }
             }
-            swap(array, outerCounter, indexMin);
+            SortUtils.swap(array, outerCounter, indexMin);
         }
         return array;
     }

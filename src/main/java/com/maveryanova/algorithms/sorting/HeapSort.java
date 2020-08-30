@@ -1,10 +1,10 @@
 package com.maveryanova.algorithms.sorting;
 
-public class HeapSort extends Sort {
+public class HeapSort implements Sort {
 
     @Override
-    public int[] sort() {
-        int[] array = copyArray();
+    public int[] sort(int[] arrayToSort) {
+        int[] array = SortUtils.copyArray(arrayToSort);
 
         // build start heap
         for (int i = array.length / 2 - 1; i >= 0; i--) {
@@ -12,7 +12,7 @@ public class HeapSort extends Sort {
         }
 
         for (int i = array.length - 1; i >= 0; i--) {
-            swap(array, 0, i);
+            SortUtils.swap(array, 0, i);
             heapify(array, 0, i);
         }
 
@@ -33,7 +33,7 @@ public class HeapSort extends Sort {
         if (rootIndex == tempIndex)
             return;
 
-        swap(array, tempIndex, rootIndex);
+        SortUtils.swap(array, tempIndex, rootIndex);
 
         heapify(array, tempIndex, heapSize);
     }

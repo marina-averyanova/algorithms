@@ -1,12 +1,13 @@
 package com.maveryanova.algorithms.sorting;
 
-public class InsertionSort extends Sort {
+public class InsertionSort implements Sort {
 
     @Override
-    public int[] sort() {
-        int[] array = copyArray();
+    public int[] sort(int[] arrayToSort) {
+        int[] array = SortUtils.copyArray(arrayToSort);
 
-        int innerCounter, outerCounter;
+        int innerCounter;
+        int outerCounter;
         for (outerCounter = 1; outerCounter < array.length; outerCounter++) {
             int temp = array[outerCounter];
             innerCounter = outerCounter;

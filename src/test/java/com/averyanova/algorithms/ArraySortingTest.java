@@ -23,6 +23,8 @@ public class ArraySortingTest {
     private final SelectionSort selectionSortClass = new SelectionSort();
     private final InsertionSort insertionSortClass = new InsertionSort();
     private final ShellSort shellSortClass = new ShellSort();
+    private final ShellSort shellSortKClass = new ShellSort("K");
+    private final ShellSort shellSortSClass = new ShellSort("S");
     private final HeapSort heapSortClass = new HeapSort();
 
     @Test
@@ -36,13 +38,13 @@ public class ArraySortingTest {
         sortData(testData, insertionSortClass, 6);
 
         logger.info("Shell sort ('Shell' type)");
-        sortData(testData, shellSortClass, "shell", null);
+        sortData(testData, shellSortClass, null);
 
         logger.info("Shell sort ('Knut' type)");
-        sortData(testData, shellSortClass, "knut", null);
+        sortData(testData, shellSortKClass, null);
 
         logger.info("Shell sort ('Sedgewick' type)");
-        sortData(testData, shellSortClass, "sedgewick", null);
+        sortData(testData, shellSortSClass, null);
 
         logger.info("Heap sort");
         sortData(testData, heapSortClass, null);
@@ -59,13 +61,13 @@ public class ArraySortingTest {
         sortData(testData, insertionSortClass, 6);
 
         logger.info("Shell sort ('Shell' type)");
-        sortData(testData, shellSortClass, "shell", 6);
+        sortData(testData, shellSortClass, null);
 
         logger.info("Shell sort ('Knut' type)");
-        sortData(testData, shellSortClass, "knut", 6);
+        sortData(testData, shellSortKClass, null);
 
         logger.info("Shell sort ('Sedgewick' type)");
-        sortData(testData, shellSortClass, "sedgewick", 6);
+        sortData(testData, shellSortSClass, null);
 
         logger.info("Heap sort");
         sortData(testData, heapSortClass, null);
@@ -82,13 +84,13 @@ public class ArraySortingTest {
         sortData(testData, insertionSortClass, 7);
 
         logger.info("Shell sort ('Shell' type)");
-        sortData(testData, shellSortClass, "shell", null);
+        sortData(testData, shellSortClass, null);
 
         logger.info("Shell sort ('Knut' type)");
-        sortData(testData, shellSortClass, "knut", null);
+        sortData(testData, shellSortKClass, null);
 
         logger.info("Shell sort ('Sedgewick' type)");
-        sortData(testData, shellSortClass, "sedgewick", null);
+        sortData(testData, shellSortSClass, null);
 
         logger.info("Heap sort");
         sortData(testData, heapSortClass, null);
@@ -105,19 +107,19 @@ public class ArraySortingTest {
         sortData(testData, insertionSortClass, 6);
 
         logger.info("Shell sort ('Shell' type)");
-        sortData(testData, shellSortClass, "shell", null);
+        sortData(testData, shellSortClass, null);
 
         logger.info("Shell sort ('Knut' type)");
-        sortData(testData, shellSortClass, "knut", null);
+        sortData(testData, shellSortKClass, null);
 
         logger.info("Shell sort ('Sedgewick' type)");
-        sortData(testData, shellSortClass, "sedgewick", null);
+        sortData(testData, shellSortSClass, null);
 
         logger.info("Heap sort");
         sortData(testData, heapSortClass, null);
     }
 
-    private void sortData(Map<Integer, Pair<int[], String>> testData, Sort sort, Integer stopPoint) {
+    private void sortData(Map<Integer, Pair<int[], String>> testData, Sort sortClass, Integer stopPoint) {
         for (Map.Entry<Integer, Pair<int[], String>> entry : testData.entrySet()) {
             if (stopPoint != null) {
                 if (entry.getKey().equals(stopPoint)) {
@@ -126,29 +128,13 @@ public class ArraySortingTest {
                 }
             }
 
-            sort.setArray(entry.getValue().fst);
-            testSort(sort, entry.getValue().snd, entry.getKey());
+            testSort(sortClass, entry.getValue().fst, entry.getValue().snd, entry.getKey());
         }
     }
 
-    private void sortData(Map<Integer, Pair<int[], String>> testData, ShellSort sort, String rule, Integer stopPoint) {
-        for (Map.Entry<Integer, Pair<int[], String>> entry : testData.entrySet()) {
-            if (stopPoint != null) {
-                if (entry.getKey().equals(stopPoint)) {
-                    logger.info("Stopped at case: " + stopPoint);
-                    break;
-                }
-            }
-
-            sort.setArray(entry.getValue().fst);
-            sort.setRule(rule);
-            testSort(sort, entry.getValue().snd, entry.getKey());
-        }
-    }
-
-    private void testSort(Sort sortClass, String expected, int testCase) {
+    private void testSort(Sort sortClass, int[] array, String expected, int testCase) {
         Instant startTime = Instant.now();
-        int[] testResult = sortClass.sort();
+        int[] testResult = sortClass.sort(array);
         Instant endTime = Instant.now();
 
         long durationMillis = endTime.toEpochMilli() - startTime.toEpochMilli();
@@ -176,9 +162,9 @@ public class ArraySortingTest {
     | #2   100        | 0        | 0        | 0         | 0        | 0              | 0
     | #3   1000       | 1        | 2        | 1         | 1        | 1              | 0
     | #4   10_000     | 61       | 12       | 5         | 2        | 1              | 2
-    | #5   100_000    | 3505     | 948      | 16        | 18       | 14             | 14
-    | #6   1_000_000  | ~        | ~        | 181       | 209      | 144            | 172
-    | #7   10_000_000 | ~        | ~        | 3751      | 3016     | 1841           | 2812
+    | #5   100_000    | 3505     | 948      | 12        | 14       | 13             | 14
+    | #6   1_000_000  | ~        | ~        | 160       | 174      | 112            | 172
+    | #7   10_000_000 | ~        | ~        | 2221      | 2525     | 1382           | 2812
 
     */
 
@@ -192,11 +178,11 @@ public class ArraySortingTest {
     | #0   1          | 0        | 0        | 0         | 0        | 0              | 0
     | #1   10         | 0        | 0        | 0         | 0        | 0              | 0
     | #2   100        | 0        | 0        | 0         | 0        | 0              | 0
-    | #3   1000       | 6        | 3        | 4         | 1        | 1              | 1
-    | #4   10_000     | 75       | 14       | 15        | 8        | 7              | 2
-    | #5   100_000    | 3572     | 1112     | 888       | 727      | 691            | 10
-    | #6   1_000_000  | ~        | ~        | ~         | ~        | ~              | 86
-    | #7   10_000_000 | ~        | ~        | ~         | ~        | ~              | 936
+    | #3   1000       | 6        | 3        | 0         | 0        | 0              | 1
+    | #4   10_000     | 75       | 14       | 2         | 3        | 2              | 2
+    | #5   100_000    | 3572     | 1112     | 7         | 4        | 7              | 10
+    | #6   1_000_000  | ~        | ~        | 50        | 43       | 39             | 86
+    | #7   10_000_000 | ~        | ~        | 627       | 522      | 427            | 936
 
     */
 
@@ -212,9 +198,9 @@ public class ArraySortingTest {
     | #2   100        | 0        | 0        | 0         | 0        | 0              | 0
     | #3   1000       | 3        | 0        | 1         | 0        | 0              | 0
     | #4   10_000     | 62       | 4        | 4         | 0        | 1              | 2
-    | #5   100_000    | 3639     | 26       | 12        | 9        | 11             | 11
-    | #6   1_000_000  | ~        | 2741     | 137       | 119      | 144            | 94
-    | #7   10_000_000 | ~        | ~        | 1981      | 1679     | 1439           | 1074
+    | #5   100_000    | 3639     | 26       | 12        | 9        | 8              | 11
+    | #6   1_000_000  | ~        | 2741     | 108       | 106      | 107            | 94
+    | #7   10_000_000 | ~        | ~        | 1552      | 1483     | 1110           | 1074
 
     */
 
@@ -229,10 +215,10 @@ public class ArraySortingTest {
     | #0   10         | 0        | 0        | 0         | 0        | 0              | 0
     | #0   100        | 0        | 0        | 0         | 0        | 0              | 0
     | #0   1000       | 4        | 3        | 1         | 0        | 0              | 0
-    | #0   10_000     | 43       | 19       | 4         | 0        | 0              | 2
-    | #0   100_000    | 8990     | 1980     | 6         | 3        | 3              | 10
-    | #0   1_000_000  | ~        | ~        | 50        | 35       | 32             | 84
-    | #0   10_000_000 | ~        | ~        | 643       | 422      | 415            | 994
+    | #0   10_000     | 43       | 19       | 2         | 0        | 1              | 2
+    | #0   100_000    | 8990     | 1980     | 4         | 2        | 4              | 10
+    | #0   1_000_000  | ~        | ~        | 26        | 20       | 30             | 84
+    | #0   10_000_000 | ~        | ~        | 436       | 232      | 279            | 994
 
     */
 
@@ -280,10 +266,10 @@ public class ArraySortingTest {
     | #1   10         | 0        | 0        | 0         | 0
     | #2   100        | 0        | 0        | 0         | 0
     | #3   1000       | 1        | 1        | 0         | 0
-    | #4   10_000     | 1        | 7        | 1         | 0
-    | #5   100_000    | 14       | 691      | 11        | 3
-    | #6   1_000_000  | 144      | ~        | 144       | 32
-    | #7   10_000_000 | 1841     | ~        | 1439      | 415
+    | #4   10_000     | 1        | 2        | 1         | 1
+    | #5   100_000    | 13       | 7        | 8         | 4
+    | #6   1_000_000  | 112      | 39       | 107       | 30
+    | #7   10_000_000 | 1382     | 427      | 1110      | 279
 
     */
 
