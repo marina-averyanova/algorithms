@@ -2,6 +2,8 @@ package com.maveryanova.algorithms.sorting;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
 
 public class ShellSort implements Sort {
     private Rule rule;
@@ -65,27 +67,23 @@ public class ShellSort implements Sort {
     }
     private class Sedgewick extends Rule {
         // { 1, 8, 23, 77, 281, 1073, 4193, 16577, 65921, 262913, 1050113, 4197377, 16783361 }
-        private ArrayList<Integer> intervals;
-        private int curIndex;
+        private final Map<Integer, Integer> intervals = new HashMap<>();
 
         public int getStartStep(int length) {
-            intervals = new ArrayList<>();
-            int h = 1; int i = 1;
+            int h = 1;
+            int currentH;
+            int i = 1;
             while (h == 1 || h < length) {
-                intervals.add(h);
-                h = (int) (Math.pow(4, i) + 3 * Math.pow(2, i - 1) + 1);
+                currentH = (int) (Math.pow(4, i) + 3 * Math.pow(2, i - 1) + 1);
+                intervals.put(currentH, h);
+                h = currentH;
                 i++;
             };
-            Collections.reverse(intervals);
-            curIndex = 0;
-            return intervals.get(curIndex);
+            return intervals.get(h);
         }
 
         public int getNextStep(int current) {
-            curIndex++;
-            if (curIndex < intervals.size()) {
-                return intervals.get(curIndex);
-            } else return -1;
+            return intervals.getOrDefault(current, -1);
         }
     }
 }
